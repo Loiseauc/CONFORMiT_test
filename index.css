@@ -1,16 +1,10 @@
 
 :root {
-  --colorprimaire: #674d3c;
-  --colorsecondaire: #a2836e; 
-  --colortertiaire: #d9ad7c;
-  --colorquatairnaire: #fff2df;
+  --colorprimaire: #0C2626;
+  --colorsecondaire:  #267272; 
+  --colortertiaire: #3FBFBF;
+  --colorquatairnaire: #cdebeb;
 }
-/*
-var(--colorprimaire)
-var(--colorsecondaire)
-var(--colortertiaire)
-var(--colorquatairnaire)
-*/
 
 html, body {
     padding: 5px;
@@ -19,6 +13,7 @@ html, body {
 
 h1 {
 	color : var(--colorprimaire) ;
+	text-align: center;
 }
 
 h2 {
@@ -41,10 +36,6 @@ p {
 }
 .comment{
 	background-color :var(--colortertiaire);
-}
-
-.list-accidents-container h1{
-	text-align: center;
 }
 
 .accident{
