@@ -1,0 +1,84 @@
+
+:root {
+  --colorprimaire: #674d3c;
+  --colorsecondaire: #a2836e; 
+  --colortertiaire: #d9ad7c;
+  --colorquatairnaire: #fff2df;
+}
+/*
+var(--colorprimaire)
+var(--colorsecondaire)
+var(--colortertiaire)
+var(--colorquatairnaire)
+*/
+
+html, body {
+    padding: 5px;
+	color: var(--colorsecondaire);
+}
+
+h1 {
+	color : var(--colorprimaire) ;
+}
+
+h2 {
+	font-size: 1.25rem;
+}
+p {
+	margin-bottom:0.25rem;
+}
+
+.container{
+	padding:0;
+}
+
+.list-accidents-container{
+	background-color : var(--colortertiaire);
+}
+
+.descriptif-accident{
+	background-color : var(--colorquatairnaire);
+}
+.comment{
+	background-color :var(--colortertiaire);
+}
+
+.list-accidents-container h1{
+	text-align: center;
+}
+
+.accident{
+	background-color : var(--colorquatairnaire);
+	text-align : center;
+	padding: 5px;
+	margin:5px;
+}
+.accident:hover{
+	margin: 5px 0px;
+	padding:7px;
+}
+
+.on-read{
+	margin: 5px -5px;
+	padding:10px;
+}
+.on-read:hover{
+	margin: 5px -5px;
+	padding:10px;
+}
+
+.list-accidents-container, .descriptif-accident, .comment{
+	height:100%;
+	padding: 0 12px;
+}
+
+.list-accidents-container, .descriptif-accident, .accident, .comment {
+	border: 2px solid var(--colorprimaire);
+	border-radius: 5px;
+}
+.bloc{
+	margin-bottom:1.5rem;
+}
+textarea, input, button{
+	width: 100%;
+}
