@@ -100,21 +100,13 @@ const employees = [
     }
 ]
 
-
-
-function setNewEvent(newEvent){
-	numEvent.num = newEvent;
-}
-
-
 var numEvent = { 
-	num:[ 384 ] 
+	num:[ 47 ] 
 } 
-
 
 Vue.component('list-event', { 
   props: ['event'],
-  template: '<button class="accident" v-on:click="setNewEvent(event.id)">{{ event.title }}</button>'
+  template: '<div class="accident" v-on:click="setNewEvent(event.id)">{{ event.title }}</div>'
 })
 
 var app1 = new Vue({
@@ -135,7 +127,7 @@ Vue.component('event-item', {
   template: `
   <div class="col-12 selected-event">
   	<h1>{{ item.title }}</h1>
-  	<h2>Crée le {{item.creationDate}} par {{item.createdBy}}</h2>
+  	<h2>Crée le {{ item.creationDate.split('T')[0] }} à {{ item.creationDate.split('T')[1].split(':')[0] }}h{{ item.creationDate.split('T')[1].split(':')[1] }} par {{ item.createdBy }}</h2>
   	<form>
 	  	<div class="bloc">
 		  	<p>Titre</p>
@@ -148,48 +140,46 @@ Vue.component('event-item', {
 	  	<div class="bloc row">
 		  	<div class="date col-7">
 			  	<p>Date</p>
-			  	<input type="date" class="form-control" v-model="item.creationDate">
+			  	<input type="date" class="form-control" v-model="item.creationDate.split('T')[0]">
 		  	</div>
 		  	<div class="hour col-5">
 		  		<p>Heure</p>
-			  	<input type="time" class="form-control" v-model="item.creationDate">
+			  	<input type="time" class="form-control" v-model="item.creationDate.split('T')[1].split('Z')[0]">
 		  	</div>
 	  	</div>
 	  	<div class="bloc">
 	  		<p>Nom du status</p>
 			<select class="form-control" id="status">
-				<option>Edge</option>
-				<option>Firefox</option>
-				<option>Chrome</option>
-				<option>Opera</option>
-				<option>Safari</option>
+				<option selected>Open</option>
+				<option>Closed</option>
+				<option>InProgress</option>
 			</select>
 	  	</div>
 	  	<div class="bloc">
 	  		<p>Employé impliqué</p>
 			<select class="form-control" id="app-employees">
-                <option>Edge</option>
-                <option>Firefox</option>
-                <option>Chrome</option>
-                <option>Opera</option>
-                <option>Safari</option>
+                <option>Harry Joitir</option>
+                <option>Helena Hewitt</option>
+                <option>Amara Ivens</option>
+                <option selected>Adelle Thornburg</option>
+                <option>Lola Ivensa</option>
+                <option>Zoé Lalima</option>
 			</select>
 	  	</div>
 	  	<div class="bloc">
 	  		<p>Témoins</p>
-			<select class="form-control" id="employees">
-				<option>Edge</option>
-				<option>Firefox</option>
-				<option>Chrome</option>
-				<option>Opera</option>
-				<option>Safari</option>
+			<select class="form-control" id="choices-multiple-remove-button" multiple>
+                <option>Jeanna</option>
+                <option>Jerry</option>
+                <option>Robert</option>
+                <option selected>Mureil</option>
+                <option selected>Melina</option>
 			</select>
 	  	</div>
   	</form>
   </div>
   `
 })
-
 
 
 var app2 = new Vue({
@@ -242,7 +232,16 @@ function GetEventComments(index) {
         return []
     }
 }
+$(document).ready(function(){
 
-
+    var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+    removeItemButton: true,
+    maxItemCount:5,
+    searchResultLimit:5,
+    renderChoiceLimit:5
+    });
+   
+   
+    });
 
 ;
